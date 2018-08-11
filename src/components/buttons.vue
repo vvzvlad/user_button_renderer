@@ -31,7 +31,7 @@
          </v-flex>
          <v-flex xs12 class="py-2">
             <v-subheader class="pl-0">Light(other rooms)</v-subheader>
-            <v-btn-toggle v-model="main_light">
+            <v-btn-toggle v-model="other_light">
                <v-btn flat large block color="primary" value="off" @click="update('/dimmer/channel/2', '0')">
                   Off light
                </v-btn>
@@ -54,26 +54,20 @@ Vue.use(VueAxios, Axios);
 export default {
   data() {
     return {
-      text: "on",
+      other_light: "on",
       main_light: "on",
       conditioner: "on"
     };
   },
   methods: {
     update(topic, value) {
-      Vue.axios
-        .get("http://192.168.88.250:8080/system_bus", {
-          params: {
-            action: "update_value",
-            value: value,
-            topic: topic
-          }
-        })
-        .then(response => {})
-        .catch(error => {
-          console.log(error);
-          this.$refs.snackbar.update("Network error");
-        });
+      Vue.axios.get("http://192.168.88.250:8080/system_bus", {
+        params: {
+          action: "update_value",
+          value: value,
+          topic: topic
+        }
+      });
     }
   }
 };

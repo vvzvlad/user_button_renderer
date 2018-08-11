@@ -1,44 +1,39 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-        <blockquote>
-          &#8220;First, solve the problem. Then, write the code.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;John Johnson</em>
-            </small>
-          </footer>
-        </blockquote>
+   <v-container fluid>
+      <v-layout row wrap>
+         <v-flex xs12 class="py-2">
+            <v-subheader class="pl-0">Sound</v-subheader>
+            <v-btn-toggle v-model="text">
+               <v-btn flat large block color="primary" value="off">
+                  Off sound
+               </v-btn>
+               <v-btn flat large block color="primary" value="on">
+                  On sound
+               </v-btn>
+            </v-btn-toggle>
+         </v-flex>
+         <v-flex xs12 class="py-2">
+            <v-divider></v-divider>
+         </v-flex>
+         <v-flex xs12 class="py-2">
+            <v-subheader class="pl-0">Volume</v-subheader>
+            <v-slider v-model="slider"></v-slider>
+         </v-flex>
+
       </v-layout>
-    </v-slide-y-transition>
-  </v-container>
+   </v-container>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  data() {
+    return {
+      text: "on",
+      slider: 10
+    };
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

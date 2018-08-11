@@ -18,18 +18,18 @@
          <v-spacer></v-spacer>
       </v-toolbar>
       <v-content>
-         <HelloWorld/>
+         <buttons/>
       </v-content>
    </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import buttons from "./components/buttons";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    buttons
   },
   data() {
     return {
